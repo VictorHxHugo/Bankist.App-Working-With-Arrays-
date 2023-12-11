@@ -90,7 +90,6 @@ const createUsernames = function (accs) {
   });
 };
 createUsernames(accounts);
-console.log(accounts);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -272,3 +271,12 @@ const movementsDescriptions = movements.map(
 );
 console.log(movementsDescriptions);
 */
+
+///////////////////////////////////////
+
+// The filter Method
+const deposits = movements.filter(mov => mov > 0);
+
+const withdrawals = movements.filter(mov => mov < 0);
+console.log(deposits);
+console.log(withdrawals);
