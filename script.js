@@ -78,6 +78,20 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
+// Computing Usernames
+
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+createUsernames(accounts);
+console.log(accounts);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -236,6 +250,7 @@ checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 
 ///////////////////////////////////////
 
+/*
 // The map Method
 
 const eurToUsd = 1.1;
@@ -256,3 +271,4 @@ const movementsDescriptions = movements.map(
     )}`
 );
 console.log(movementsDescriptions);
+*/
