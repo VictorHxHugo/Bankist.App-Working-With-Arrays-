@@ -78,6 +78,12 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
+const calDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance} EUR`;
+};
+calDisplayBalance(account1.movements);
+
 // Computing Usernames
 
 const createUsernames = function (accs) {
@@ -186,7 +192,6 @@ movements.forEach(function (mov, i) {
 */
 
 /////////////////////////////////////////////////
-
 /*
 //  forEach With Maps and Sets
 
@@ -248,7 +253,6 @@ checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 */
 
 ///////////////////////////////////////
-
 /*
 // The map Method
 
@@ -273,10 +277,34 @@ console.log(movementsDescriptions);
 */
 
 ///////////////////////////////////////
-
+/*
 // The filter Method
 const deposits = movements.filter(mov => mov > 0);
 
 const withdrawals = movements.filter(mov => mov < 0);
 console.log(deposits);
 console.log(withdrawals);
+*/
+
+///////////////////////////////////////
+// The reduce Method
+
+// accumaltor => SNOWBALL
+
+// const balance = movements.reduce(function (acc, cur, i, arr) {
+//   console.log(`Interaction ${i}: ${acc}`);
+//   return acc + cur;
+// }, 0);
+
+// console.log(balance);
+
+const balance = movements.reduce((acc, cur) => acc + cur, 0);
+console.log(balance);
+
+// Maximum value
+
+const max = movements.reduce((acc, mov) => {
+  if (acc > mov) return acc;
+  else return mov;
+}, movements[0]);
+console.log(max);
